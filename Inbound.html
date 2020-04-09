@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="salesforce-community" content="https://healthcloudtrialmaster-15a4d-17158f180b5.force.com/patients">
+<meta name="salesforce-mode" content="popup-callback">
+<meta name="salesforce-save-access-token" content="true">
+<meta name="salesforce-allowed-domains" content="google.com">
+<script src="https://healthcloudtrialmaster-15a4d-17158f180b5.force.com/patients/servlet/servlet.loginwidgetcontroller?type=javascript_widget" async defer></script>
+</head>
+<body>
+	<style type='text/css'>
+		.embeddedServiceHelpButton .helpButton .uiButton {
+			background-color: #005290;
+			font-family: "Arial", sans-serif;
+		}
+		.embeddedServiceHelpButton .helpButton .uiButton:focus {
+			outline: 1px solid #005290;
+		}
+	</style>
+
+	<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+	<script type='text/javascript'>
+		var initESW = function(gslbBaseURL) {
+			embedded_svc.settings.displayHelpButton = true; //Or false
+			embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+			//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+			//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+			//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+			//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+			// Settings for Field Service
+
+			embedded_svc.settings.enabledFeatures = ['FieldService'];
+			embedded_svc.settings.entryFeature = 'FieldService';
+
+			embedded_svc.settings.useCustomAuthentication = false;
+			embedded_svc.settings.loginClientId = '3MVG97quAmFZJfVw2Ivb9aUheOtshFVCpGaXfZsav8vj_MprkXFoFn0BiJ28eatOQdddoU4Cqn2d89zd91ZGU';
+			embedded_svc.settings.loginRedirectURL = 'https://www.google.com';
+			embedded_svc.settings.loginTargetQuerySelector = '#salesforce-login';
+			embedded_svc.settings.authenticationStartLabel = 'Good to go!';
+
+			embedded_svc.init(
+				'https://ap17.salesforce.com',
+				'https://healthcloudtrialmaster-15a4d-17158f180b5.force.com/patients',
+				gslbBaseURL,
+				'00D2x000000Guih',
+				'Inbound',
+				{
+					
+				}
+			);
+		};
+
+		if (!window.embedded_svc) {
+			var s = document.createElement('script');
+			s.setAttribute('src', 'https://ap17.salesforce.com/embeddedservice/5.0/esw.min.js');
+			s.onload = function() {
+				initESW(null);
+			};
+			document.body.appendChild(s);
+		} else {
+			initESW('https://service.force.com');
+		}
+	</script>
+</body>
+</html>
